@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINK TO GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Marck+Script&family=Viaoda+Libre&display=swap" rel="stylesheet">
+
+    <!-- LINK TO STYLESHEET -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Wine Recommendation</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="headerText">
+                <h1>Can't decide which wine to get?</h1>
+                <p>Whether you're looking for a bottle for yourself or looking to gift it to someone, we can help you pick!</p>
+            </div>
+
+            
+            <form action="#">
+                <div class="wineGenerator">
+                    <label class="generatorBtn" for="toggle"><a href="#linkToWineRecommendation">Help me pick!</a></label>
+                    <input class="checkbox" type="checkbox">
+                
+                </div>
+                    <label for="usersChoice"></label>
+                    <input class="searchBar" type="text" placeholder="Type your dish here">
+                    <input type="submit" class="submitBtn" value="Pair wine with my food!"><a href="#linktoWineRecoWithFood"></a>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="wineRecommendation" id="linkToWineRecommendation">
+                <p class="wineName"></p>
+                <p class="wineDescription"></p>
+                <p class="winePrice"></p>
+                <a href="#" class="linkToBuyAnchor"></a>
+            </div>
+        </section>
+
+        <section class="wineRecommendationForFood" id="linkToWineRecoWithFood">
+                <p class="winePairingText"></p>
+                <p class="wineName1"></p>
+                <p class="wineDescription1"></p>
+                <p class="winePrice1"></p>
+                <a href="#" class="linkToBuyAnchor1"></a>
+        </section>
+    </main>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
