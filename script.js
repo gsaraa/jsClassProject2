@@ -90,7 +90,10 @@ app.displayWine = function() {
 // Function to get user input and pass it as a parameter to the API call function
 app.getUserInput = function() {
     // Attaching an event listener to the form element
-    app.formElement.on('submit', function() {
+    app.formElement.on('submit', function(e) {
+        // Built-in function to prevent any default actions
+        e.preventDefault();
+        
         // Storing user input value in a variable
         const userInput = $('.searchBar').val();
         
