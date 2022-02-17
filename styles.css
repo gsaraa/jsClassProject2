@@ -93,16 +93,16 @@ header p
         font-family: 'Viaoda Libre', cursive;
         color: rgb(83, 5, 5);
         text-align: center;
-        width: 600px;
-        height: 0;
+        /* width: 600px; */
+        /* height: 0; */
     }
 
-.wineRecommendation.showHeight
+/* .wineRecommendation.showHeight
     {
         height: auto;
         padding: 30px;
         margin: 30px auto;
-    }
+    } */
 
 .wineRecommendationForFood
     {

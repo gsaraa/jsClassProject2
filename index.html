@@ -10,48 +10,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Marck+Script&family=Viaoda+Libre&display=swap" rel="stylesheet">
 
     <!-- LINK TO STYLESHEET -->
-    <link rel="stylesheet" href="./styles.css">
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
 
     <title>Wine Recommendation</title>
 </head>
 <body>
+
     <header>
         <div class="wrapper">
+
             <div class="headerText">
                 <h1>Can't decide which wine to get?</h1>
                 <p>Whether you're looking for a bottle for yourself or looking to gift it to someone, we can help you pick!</p>
             </div>
 
-            
-            <form action="#">
-                <div class="wineGenerator">
-                    <label class="generatorBtn" for="toggle"><a href="#linkToWineRecommendation">Help me pick!</a></label>
-                    <input class="checkbox" type="checkbox">
-                
-                </div>
-                    <label for="usersChoice"></label>
-                    <input class="searchBar" type="text" placeholder="Type your dish here">
-                    <input type="submit" class="submitBtn" value="Pair wine with my food!"><a href="#linktoWineRecoWithFood"></a>
-            </form>
         </div>
     </header>
 
     <main>
         <section>
+            <div>
+
+                <div class="wineGenerator">
+                    <button class="generatorBtn">Help me pick!</button>
+                    <!-- <label class="generatorBtn" for="toggle"><a href="#linkToWineRecommendation">Help me pick!</a></label>
+                    <input class="checkbox" type="checkbox"> -->
+                </div>
+
+            </div>
+
+            <form action="#">
+                    <label for="usersChoice"></label>
+                    <input class="searchBar" type="text" placeholder="Type your dish here">
+                    <button type="submit" class="submitBtn">Pair wine with my food!</button>
+                    <!-- <input type="submit" class="submitBtn" value="Pair wine with my food!"><a href="#linktoWineRecoWithFood"></a> -->
+            </form>
+
+        </section>
+
+        <section>
             <div class="wineRecommendation" id="linkToWineRecommendation">
-                <p class="wineName"></p>
-                <p class="wineDescription"></p>
-                <p class="winePrice"></p>
-                <a href="#" class="linkToBuyAnchor"></a>
+                
             </div>
         </section>
 
         <section class="wineRecommendationForFood" id="linkToWineRecoWithFood">
-                <p class="winePairingText"></p>
+                <!-- <p class="winePairingText"></p>
                 <p class="wineName1"></p>
                 <p class="wineDescription1"></p>
                 <p class="winePrice1"></p>
-                <a href="#" class="linkToBuyAnchor1"></a>
+                <a href="#" class="linkToBuyAnchor1"></a> -->
         </section>
     </main>
 
