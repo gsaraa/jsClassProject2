@@ -71,7 +71,7 @@ app.displayWine = function() {
                 <h2 class="wineName">${randomWineReco.title}</h2>
                 <p class="wineDescription">${randomWineReco.description}</p>
                 <p class="winePrice">${randomWineReco.price}</p>
-                <a href="${randomWineReco.link}" class="linkToBuy"></a>
+                <a href="${randomWineReco.link}" class="linkToBuy">Link to buy</a>
             `
 
             app.wineReco.html(recommendedWine)
@@ -79,7 +79,7 @@ app.displayWine = function() {
             $('html, body').animate({
                 scrollTop: scrollWineReco.offset().top
             }, 2000);
-            
+
             // Calling the displayWine function so it runs after the event listener is triggered
             app.displayWine();
 
@@ -131,7 +131,7 @@ app.displayWinePairing = function(data) {
         <h3 class="pairedWineTitle">${winePairingReco.title}</h3>
         <p class="pairedWineDescription">${winePairingReco.description}</p>
         <p class="pairedWinePrice">${winePairingReco.price}</p>
-        <a href="${winePairingReco.link}" class="linkToBuyAnchor"></a>
+        <a href="${winePairingReco.link}" class="linkToBuyAnchor">Link to buy</a>
     `
     app.pairedWine.append(pairedWineReco);
 }
