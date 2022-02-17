@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Marck+Script&family=Viaoda+Libre&display=swap" rel="stylesheet">
 
     <!-- LINK TO STYLESHEET -->
-    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <link rel="stylesheet" href="./styles/styles.css">
 
     <title>Wine Recommendation</title>
 </head>
@@ -29,50 +29,47 @@
 
     <main>
         <section>
-            <div>
+            <div class="wrapper">
 
                 <div class="wineGenerator">
                     <button class="generatorBtn">Help me pick!</button>
-                    <!-- <label class="generatorBtn" for="toggle"><a href="#linkToWineRecommendation">Help me pick!</a></label>
-                    <input class="checkbox" type="checkbox"> -->
                 </div>
 
-            </div>
-
-            <form action="#">
+                
+                <form action="#">
                     <label for="usersChoice"></label>
                     <input class="searchBar" type="text" placeholder="Type your dish here">
                     <button type="submit" class="submitBtn">Pair wine with my food!</button>
-                    <!-- <input type="submit" class="submitBtn" value="Pair wine with my food!"><a href="#linktoWineRecoWithFood"></a> -->
-            </form>
+                </form>
 
+            </div>
         </section>
 
         <section>
-            <div class="wineRecommendation" id="linkToWineRecommendation">
-                
+            <div class="wrapper">
+                <div class="wineRecommendation" id="scrollToWineRecommendation">
+                    
+                </div>
             </div>
         </section>
 
-        <section class="winePairingSec" id="linkToWineRecoWithFood">
-            <div class="winePairing">
-                <ul class="wineList">
+        <section class="winePairingSec" id="scrollToPairedWineReco">
+            <div class="wrapper">
+                <div class="winePairing">
+                    <ul class="wineList">
 
-                </ul>
+                    </ul>
+                </div>
+
+                <div class="pairingText">
+
+                </div>
+
+                <div class="pairedWine">
+
+                </div>
+
             </div>
-
-            <div class="pairingText">
-
-            </div>
-
-            <div class="pairedWine">
-
-            </div>
-                <!-- <p class="winePairingText"></p>
-                <p class="wineName1"></p>
-                <p class="wineDescription1"></p>
-                <p class="winePrice1"></p>
-                <a href="#" class="linkToBuyAnchor1"></a> -->
         </section>
     </main>
 

@@ -1,0 +1,140 @@
+@import '_setup';
+
+html 
+    {
+        font-size: 62.5%;
+    }
+
+body 
+    {
+        margin: 0;
+        padding: 0;
+        font-family: 'Abril Fatface', cursive;
+    }
+        
+.img 
+    {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.wrapper
+    {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+header
+    {
+        background-image: url(../assets/whiteandredwine.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        text-align: center;
+    }
+
+h1
+    {
+        font-size: 60px;
+        background-color: whitesmoke;
+        color: rgb(83, 5, 5);
+        border-radius: 5cm;
+        display: inline-block;
+        padding: 30px;
+        text-transform: uppercase;
+        margin-top: 30vh;
+    }
+
+header p 
+    {
+        font-size: 25px;
+        text-transform: capitalize;
+        font-family: 'Viaoda Libre', cursive;
+        background-color: whitesmoke;
+        color: rgb(83, 5, 5);
+        border-radius: 1cm;
+        padding: 15px;
+        margin-bottom: 60px;
+    }
+
+.generatorBtn
+    {
+        background-color: whitesmoke;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: inherit;
+        padding: 10px;
+        margin: 30px;
+        width: 200px;
+        display: inline-block;
+        border-radius: 2cm;
+        color: rgb(83, 5, 5);
+    }
+
+.wineRecommendation
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: whitesmoke;
+        font-family: 'Viaoda Libre', cursive;
+        color: rgb(83, 5, 5);
+        text-align: center;
+    }
+
+.wineRecommendationForFood
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: whitesmoke;
+        font-family: 'Viaoda Libre', cursive;
+        color:rgb(83, 5, 5);
+        text-align: center;
+        width: 600px;
+        height: 0;
+    }
+
+.searchBar
+    {
+        border-radius: 0.25cm;
+        height: 35px;
+        width: 200px;
+    }
+
+.submitBtn
+    {
+        color:rgb(83, 5, 5);
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: inherit;
+        height: 40px;
+        border-radius: 2cm;
+    }
+
+.wineName
+    {
+        font-size: 35px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+.linkToBuyAnchor
+    {
+        text-decoration: none;
+        color: rgb(83, 5, 5);
+    }
+
+.winePairingText
+    {
+        color: tomato;
+    }
+
+.wineName1
+    {
+        font-size: 35px;
+        text-transform: uppercase;
+        margin: 0;
+    }

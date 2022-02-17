@@ -14,10 +14,12 @@ app.apiKey = `8b29708f68cd48448a5c1a0ed9ef5a85`
 // Storing elements in variables for easier readability
 app.generatorBtn = $('.generatorBtn');
 app.wineReco = $('.wineRecommendation');
+app.scrollWineReco = $('#scrollToWineRecommendation');
 app.formElement = $('form');
+app.scrollPairedWine = $('#scrollToPairedWineReco')
 app.wineList = $('.wineList');
-app.pairingText = $('.pairingText')
-app.pairedWine = $('.pairedWine')
+app.pairingText = $('.pairingText');
+app.pairedWine = $('.pairedWine');
 
 // Function to make API call
 app.getWine = function() {
@@ -36,23 +38,21 @@ app.getWine = function() {
 }
 
 // Function to make API call using user input
-app.getWineWithFoodAPI = function(query) {
+app.getPairedWine = function(query) {
     // console.log(query);
     const wineWithFoodAPI = $.ajax({
-        url: `https://api.spoonacular.com/food/wine/pairing?food=${query}`,
+        url: `https://api.spoonacular.com/food/wine/pairing`,
         method: 'GET',
         dataType: 'json',
         data: {
             apiKey: app.apiKey,
-            // food: 'salmon'
+            food: query
         }
     }) 
     return wineWithFoodAPI;
-    // .then(function(data) {
-    //     console.log(data);
-    // })
 }
 
+// Function to display random wine
 app.displayWine = function() {
     // Referencing the API call 
     const wineAPI = app.getWine();
@@ -74,19 +74,17 @@ app.displayWine = function() {
                 <a href="${randomWineReco.link}" class="linkToBuy"></a>
             `
 
-        app.wineReco.html(recommendedWine)
+            app.wineReco.html(recommendedWine)
 
-        // Calling the displayWine function so it runs after the event listener is triggered
-        app.displayWine();
+            $('html, body').animate({
+                scrollTop: scrollWineReco.offset().top
+            }, 2000);
+            
+            // Calling the displayWine function so it runs after the event listener is triggered
+            app.displayWine();
 
-        // $('.wineName').text(randomWineReco.title)
-        // $('.wineDescription').text(randomWineReco.description)
-        // $('.winePrice').text(randomWineReco.price)
-        // $('.linkToBuyAnchor').attr('href', randomWineReco.link)
-        // $('.linkToBuyAnchor').text('Link to buy')
-        // $('.wineRecommendation').addClass('showHeight')
+        })
     })
-})
 }
 
 // Function to get user input and pass it as a parameter to the API call function
@@ -97,8 +95,9 @@ app.getUserInput = function() {
         const userInput = $('.searchBar').val();
         
         // Calling the API call function and passing user input as parameter
-        const wineForFoodAPI = app.getWineWithFoodAPI(userInput);
+        const wineForFoodAPI = app.getPairedWine(userInput);
 
+        // Fulfilling promise
         wineForFoodAPI.then(function(data) {
             console.log(data);
             app.displayWinePairing(data)
@@ -108,60 +107,33 @@ app.getUserInput = function() {
 
 // Function to display wine pairing 
 app.displayWinePairing = function(data) {
+    // Storing data that is obtained from the API call in variable for easy access
     const winePairings = data.pairedWines;
     const winePairingText = data.pairingText;
     const winePairingReco = data.productMatches[0];
 
-    console.log(winePairings);
-    console.log(winePairingReco);
-
+    // Looping through pairedWines array to append each item in the ul element
     for (let i=0; i < winePairings.length; i++) {
         const wineListItem = `
             <li>${winePairings[i]}</li>
         `
         app.wineList.append(wineListItem);
-        console.log(wineListItem);
     }
 
+    // Appending pairing text
     const pairingText = `
-        <h2>${winePairingText}</h2>
+        <h2 class="pairingText">${winePairingText}</h2>
     `
     app.pairingText.append(pairingText);
 
+    // Appending paired wine recommendation
     const pairedWineReco = `
         <h3 class="pairedWineTitle">${winePairingReco.title}</h3>
         <p class="pairedWineDescription">${winePairingReco.description}</p>
         <p class="pairedWinePrice">${winePairingReco.price}</p>
         <a href="${winePairingReco.link}" class="linkToBuyAnchor"></a>
     `
-
     app.pairedWine.append(pairedWineReco);
-    // wineForFoodAPI.then(function(wineReco) {
-        
-    //     console.log(wineReco);
-    //     const wineRecoForFood = wineReco.productMatches;
-    //     // const wineRecoText = wineReco.pairingText;
-
-    //     // console.log(wineRecoForFood);
-    //     // console.log(wineRecoText);
-
-
-    //     wineRecoForFood.forEach(function(wineRecoObj) {
-    //         console.log(wineRecoObj);
-    //         // <p class="winePairingText"></p>
-    //         //     <p class="wineName1"></p>
-    //         //     <p class="wineDescription1"></p>
-    //         //     <p class="winePrice1"></p>
-    //         //     <a href="#" class="linkToBuyAnchor1"></a>
-    //         $('.winePairingText').text(wineRecoText)
-    //         $('.wineName1').text(wineRecoObj.title)
-    //         $('.wineDescription1').text(wineRecoObj.description)
-    //         $('.winePrice1').text(wineRecoObj.price)
-    //         $('.linkToBuyAnchor1').attr('href', wineRecoObj.link)
-    //         $('.linkToBuyAnchor1').text('Link to buy')
-    //         $('.wineRecommendationForFood').addClass('showHeight1')
-    //     })    
-    // })
 }
 
 // Randomizer function to get a random index from an array (used for getting a random wine index)
@@ -171,29 +143,14 @@ app.getRandomWineFromArray = function(array) {
     return array[randomIndex];
 }
 
+// Init function to initalize the app on page load
 app.init = function() {
-
+    app.getWine();
     app.displayWine();
     app.getUserInput();
-    // app.displayWinePairing();
-    // // let getNewReco = false;
-
-    // $('.wineGenerator').on('click', function() {
-    //     app.displayWine();
-
-    // })
-    // // app.displayWineForFood();
-    // $('form').on('submit', function() {
-    //     e.preventDefault();
-
-    //     const userFoodInput = $('input[type=text]').val();
-    //     app.displayWineForFood(userFoodInput);
-
-    //     $('input[type=text]').val('');
-    // })
-    app.getWine();
 }
 
+// Document ready 
 $(document).ready(function(){ 
     app.init();
 });
